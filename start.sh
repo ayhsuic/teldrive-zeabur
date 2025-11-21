@@ -11,11 +11,11 @@ echo "Starting teldrive..."
 echo "正在生成 Rclone 配置文件: /config/rclone.conf"
 echo "[teldrive]
 type = teldrive
-api_host = https://${TELDRIVE_DOMAIN}.zeabur.app
+api_host = https://localhost:8080
 access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/config/rclone.conf"
 
 echo "正在启动 Rclone WebDAV 服务..."
-rclone serve webdav teldrive: \
+rclone mount teldrive:/ /media/teldrive \
     --config "/config/rclone.conf" \
     --addr :8080 \
     --user "${WEBDAV_USER}" \
