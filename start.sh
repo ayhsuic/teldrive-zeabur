@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-# 设置一个陷阱，当脚本退出时，杀死所有后台任务
-trap 'kill $(jobs -p)' EXIT
-
 # 启动 teldrive
 echo "Starting teldrive..."
 /teldrive run &
