@@ -8,3 +8,10 @@ JWT_SECRET= \
 TG_UPLOADS_ENCRYPTION_KEY= \
 DB_PREPARE_STMT=false \
 DB_POOL_ENABLE=false
+# port
+8080 \
+8096 \
+# volume
+/cache \
+/config \
+/medai \
