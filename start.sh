@@ -3,7 +3,13 @@ set -e
 
 # 启动 teldrive
 echo "Starting teldrive..."
-/teldrive run
+teldrive run \
+  --db-data-source "postgresql://postgres.lxtvteqdrzkltluemwuk:aaTwJBbYvNkkw9Sh@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres" \
+  --db-prepare-stmt false \
+  --db-pool-enable false \
+  --jwt-allowed-users ayhsuic \
+  --jwt-secret "ff78a167361bc2df18e1fb1702a95f96" \
+  --tg-uploads-encryption-key "bWgWZsvd3_26oe4OYPy-7afv6uutbW" &
 
 # 启动 rclone
 echo "正在生成 Rclone 配置文件: /config/rclone.conf"
@@ -24,7 +30,7 @@ rclone mount teldrive:/ /media/teldrive \
     --vfs-cache-max-size 1024M \
     --dir-cache-time 120h \
     --vfs-read-chunk-size 4M \
-    --vfs-read-chunk-streams 16
+    --vfs-read-chunk-streams 16 &
 
 # 在前台启动 jellyfin，保持容器运行
 echo "Starting Jellyfin..."
