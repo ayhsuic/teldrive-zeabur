@@ -14,4 +14,4 @@ DB_POOL_ENABLE=false
 # volume
 /cache \
 /config \
-/medai \
+/media
