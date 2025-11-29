@@ -22,7 +22,11 @@ echo "正在生成 Rclone 配置文件: /telcloud/rclone.conf"
 echo "[teldrive]
 type = teldrive
 api_host = http://localhost:8080
-access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/telcloud/rclone.conf"
+access_token = ${TELDRIVE_ACCESS_TOKEN}
+chunk_size = "500M"
+upload_concurrency = 4
+encrypt_files = false
+random_chunk_name = false" > "/telcloud/rclone.conf"
 
 # 启动 teldrive
 echo "Starting teldrive..."
