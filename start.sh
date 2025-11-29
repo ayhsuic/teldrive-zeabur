@@ -15,7 +15,6 @@ access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/config/rclone.conf"
 echo "正在启动 Rclone WebDAV 服务..."
 rclone mount teldrive:/ /media/teldrive \
     --config "/config/rclone.conf" \
-    --addr :8080 \
     --user "${WEBDAV_USER}" \
     --pass "${WEBDAV_PASS}" \
     --cache-dir /cache \
