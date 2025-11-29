@@ -1,5 +1,5 @@
 # rclone
-rclone serve webdav teldrive: --config "/telcloud/rclone.conf" --addr :8000 --user admin --pass password --cache-dir=/telcloud --vfs-cache-mode=full --vfs-cache-max-age=72h --vfs-cache-max-size=1024M --dir-cache-time=5m --vfs-read-chunk-size=4M --vfs-read-chunk-streams=16
+rclone serve webdav teldrive: --config "/telcloud/rclone.conf" --addr :8000 --user admin --pass password --cache-dir=/telcloud --vfs-cache-mode=full --vfs-cache-max-age=72h --vfs-cache-max-size=1024M --dir-cache-time=5m --vfs-read-chunk-size=4M --vfs-read-chunk-streams=16 --teldrive-threaded-streams=1
 # env
 TELDRIVE_ACCESS_TOKEN= \
 DB_DATA_SOURCE= \
