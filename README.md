@@ -12,4 +12,5 @@ DB_POOL_ENABLE=false
 # port
 8080
 # volume
-/config
+/.teldrive \
+/.config
