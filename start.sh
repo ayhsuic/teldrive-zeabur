@@ -32,6 +32,10 @@ upload_concurrency = 4
 encrypt_files = false
 random_chunk_name = false" > "/telcloud/rclone.conf"
 
+# 启动 imgproxy
+echo "Starting imgproxy..."
+/usr/local/bin/imgproxy &
+
 # 启动 teldrive
 echo "Starting teldrive..."
 /teldrive run --config /telcloud/config.toml
