@@ -3,7 +3,7 @@ set -e
 
 # 启动 teldrive
 echo "Starting teldrive..."
-/teldrive run -c /config/config.toml
+/teldrive run --config /config/config.toml &
 
 # 启动 rclone
 echo "正在生成 Rclone 配置文件: /config/rclone.conf"
