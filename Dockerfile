@@ -1,17 +1,20 @@
-# 第一阶段：获取 teldrive
 FROM ghcr.io/tgdrive/teldrive AS teldrive
 
-# 第二阶段：获取 rclone
 FROM ghcr.io/tgdrive/rclone AS rclone
 
-# 第三阶段：使用 Debian
+FROM darthsim/imgproxy AS imgproxy
+
 FROM debian:bullseye
 
-# 从前面的阶段复制二进制文件
+ENV IMGPROXY_ALLOW_ORIGIN="*"
+ENV IMGPROXY_ENFORCE_WEBP="true"
+ENV IMGPROXY_MALLOC="jemalloc"
+ENV IMGPROXY_BIND="8888"
+
 COPY --from=teldrive /teldrive /teldrive
 COPY --from=rclone /usr/local/bin/rclone /usr/local/bin/rclone
+COPY --from=imgproxy /usr/local/bin/imgproxy /usr/local/bin/imgproxy
 
-# 复制并设置启动脚本
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 ENTRYPOINT ["/start.sh"]
