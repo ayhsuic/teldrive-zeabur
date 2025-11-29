@@ -5,6 +5,11 @@ set -e
 echo "Starting teldrive..."
 /teldrive run --config /config/config.toml &
 
+until curl -s http://localhost:8080/api/health; do
+  echo "Waiting for Teldrive server..."
+  sleep 5
+done
+
 # 启动 rclone
 echo "正在生成 Rclone 配置文件: /config/rclone.conf"
 echo "[teldrive]
@@ -23,6 +28,5 @@ rclone mount teldrive:/ /media \
     --vfs-read-chunk-size=4M \
     --vfs-read-chunk-streams=16 &
 
-# 在前台启动 jellyfin，保持容器运行
 echo "Starting Jellyfin..."
 /jellyfin/jellyfin
