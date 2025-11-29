@@ -13,11 +13,8 @@ api_host = https://localhost:8080
 access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/config/rclone.conf"
 
 echo "正在启动 Rclone WebDAV 服务..."
-rclone mount teldrive:/ /media/teldrive \
+rclone mount teldrive:/ /media \
     --config "/config/rclone.conf" \
-    --addr=:8080 \
-    --user="${WEBDAV_USER}" \
-    --pass="${WEBDAV_PASS}" \
     --cache-dir=/cache \
     --vfs-cache-mode=full \
     --vfs-cache-max-age=72h \
