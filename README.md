@@ -12,6 +12,7 @@ TG_STREAM_MULTI_THREADS=6 \
 TG_STREAM_STREAM_BUFFERS=20
 # port
 8080 \
-8000
+8000 \
+8888
 # volume
 /telcloud
