@@ -15,7 +15,11 @@ allowed-users = [\"${JWT_ALLOWED_USERS}\"]
 secret = \"${JWT_SECRET}\"
 
 [tg.uploads]
-encryption-key = \"${TG_UPLOADS_ENCRYPTION_KEY}\"" > "/telcloud/config.toml"
+encryption-key = \"${TG_UPLOADS_ENCRYPTION_KEY}\"
+
+[tg.stream]
+multi-threads = ${TG_STREAM_MULTI_THREADS}
+stream-buffers = ${TG_STREAM_STREAM_BUFFERS}" > "/telcloud/config.toml"
 
 # 生成 Rclone 配置文件
 echo "正在生成 Rclone 配置文件: /telcloud/rclone.conf"
