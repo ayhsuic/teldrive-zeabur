@@ -28,6 +28,4 @@ type = teldrive
 api_host = http://localhost:8080
 access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/config/rclone.conf"
 
-# 启动 jellyfin
-echo "Starting Jellyfin..."
-/jellyfin/jellyfin
+# 启动 rclone
