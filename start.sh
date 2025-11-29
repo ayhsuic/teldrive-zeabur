@@ -15,15 +15,16 @@ access_token = ${TELDRIVE_ACCESS_TOKEN}" > "/config/rclone.conf"
 echo "正在启动 Rclone WebDAV 服务..."
 rclone mount teldrive:/ /media/teldrive \
     --config "/config/rclone.conf" \
-    --user "${WEBDAV_USER}" \
-    --pass "${WEBDAV_PASS}" \
-    --cache-dir /cache \
-    --vfs-cache-mode full \
-    --vfs-cache-max-age 72h \
-    --vfs-cache-max-size 1024M \
-    --dir-cache-time 120h \
-    --vfs-read-chunk-size 4M \
-    --vfs-read-chunk-streams 16 &
+    --addr=:8080 \
+    --user="${WEBDAV_USER}" \
+    --pass="${WEBDAV_PASS}" \
+    --cache-dir=/cache \
+    --vfs-cache-mode=full \
+    --vfs-cache-max-age=72h \
+    --vfs-cache-max-size=1024M \
+    --dir-cache-time=120h \
+    --vfs-read-chunk-size=4M \
+    --vfs-read-chunk-streams=16 &
 
 # 在前台启动 jellyfin，保持容器运行
 echo "Starting Jellyfin..."
