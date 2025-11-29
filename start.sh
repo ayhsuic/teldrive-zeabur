@@ -28,4 +28,4 @@ rclone mount teldrive:/ /media/teldrive \
 
 # 在前台启动 jellyfin，保持容器运行
 echo "Starting Jellyfin..."
-/jellyfin/jellyfin
+#/jellyfin/jellyfin
