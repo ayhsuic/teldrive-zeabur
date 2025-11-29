@@ -13,4 +13,5 @@ DB_POOL_ENABLE=false
 8080
 # volume
 /.teldrive \
-/.config
+/.config \
+/cache
