@@ -14,4 +14,4 @@ COPY --from=rclone /usr/local/bin/rclone /usr/local/bin/rclone
 # 复制并设置启动脚本
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
