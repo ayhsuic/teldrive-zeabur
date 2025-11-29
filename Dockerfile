@@ -2,10 +2,14 @@
 FROM ghcr.io/tgdrive/teldrive AS teldrive
 
 # 第二阶段：获取 rclone
-FROM ghcr.io/tgdrive/rclone
+FROM ghcr.io/tgdrive/rclone AS rclone
+
+# 第三阶段：使用 Debian
+FROM debian:bullseye
 
 # 从前面的阶段复制二进制文件
 COPY --from=teldrive /teldrive /teldrive
+COPY --from=rclone /usr/local/bin/rclone /usr/local/bin/rclone
 
 # 复制并设置启动脚本
 COPY start.sh /start.sh
