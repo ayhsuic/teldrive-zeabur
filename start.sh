@@ -27,7 +27,7 @@ echo "[teldrive]
 type = teldrive
 api_host = http://localhost:8080
 access_token = ${TELDRIVE_ACCESS_TOKEN}
-chunk_size = "500M"
+chunk_size = "512M"
 upload_concurrency = 4
 encrypt_files = false
 random_chunk_name = false" > "/telcloud/rclone.conf"
