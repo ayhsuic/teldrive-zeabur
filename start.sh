@@ -40,13 +40,17 @@ echo "Starting imgproxy..."
 echo "Starting teldrive..."
 /teldrive run --config /telcloud/config.toml &
 
+# 等待 teldrive 启动后再启动 rclone
+echo "Waiting for Teldrive to be ready..."
+sleep 5
+
 # 启动 rclone
 echo "Starting rclone..."
-/rclone serve webdav teldrive: \
+exec /usr/local/bin/rclone serve webdav teldrive: \
 --config "/telcloud/rclone.conf" \
 --addr :8000 \
 --user admin \
---pass ${PASS} \
+--pass ${PASS:-password} \
 --cache-dir=/telcloud \
 --vfs-cache-mode full \
 --vfs-cache-max-age 72h \
