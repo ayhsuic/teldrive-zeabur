@@ -46,7 +46,7 @@ sleep 5
 
 # 启动 rclone
 echo "Starting rclone..."
-exec /usr/local/bin/rclone serve webdav teldrive: \
+/usr/local/bin/rclone serve webdav teldrive: \
 --config "/telcloud/rclone.conf" \
 --addr :8000 \
 --user admin \
@@ -57,7 +57,4 @@ exec /usr/local/bin/rclone serve webdav teldrive: \
 --vfs-cache-max-size 5G \
 --vfs-read-chunk-size 32M \
 --vfs-read-chunk-streams 8 \
---dir-cache-time 24h \
---buffer-size 64M \
---no-checksum \
---no-modtime
+--dir-cache-time 24h
