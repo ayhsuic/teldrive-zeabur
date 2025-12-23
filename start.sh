@@ -38,4 +38,22 @@ echo "Starting imgproxy..."
 
 # 启动 teldrive
 echo "Starting teldrive..."
-/teldrive run --config /telcloud/config.toml
+/teldrive run --config /telcloud/config.toml &
+
+# 启动 rclone
+echo "Starting rclone..."
+/rclone serve webdav teldrive: \
+--config "/telcloud/rclone.conf" \
+--addr :8000 \
+--user admin \
+--pass ${PASS} \
+--cache-dir=/telcloud \
+--vfs-cache-mode full \
+--vfs-cache-max-age 72h \
+--vfs-cache-max-size 5G \
+--vfs-read-chunk-size 32M \
+--vfs-read-chunk-streams 8 \
+--dir-cache-time 24h \
+--buffer-size 64M \
+--no-checksum \
+--no-modtime
