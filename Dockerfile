@@ -5,7 +5,7 @@ FROM darthsim/imgproxy AS imgproxy_bin
 FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
+    libvips-dev \
     && rm -rf /var/lib/apt/lists/*
 
 ENV IMGPROXY_ALLOW_ORIGIN="*"
