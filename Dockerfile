@@ -4,7 +4,7 @@ FROM ghcr.io/tgdrive/rclone AS rclone
 
 FROM darthsim/imgproxy AS imgproxy
 
-FROM debian:bullseye
+FROM debian
 
 ENV IMGPROXY_ALLOW_ORIGIN="*"
 ENV IMGPROXY_ENFORCE_WEBP="true"
